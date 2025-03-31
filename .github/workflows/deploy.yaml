@@ -17,10 +17,13 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: '14'
+          node-version: '18'
+
+      - name: Use Correct Node Version
+        run: node -v  # Ensure the right version of Node.js is used
 
       - name: Install dependencies
-        uses: bahmutov/npm-install@v1
+        run: npm ci  # Use npm ci instead of bahmutov/npm-install
 
       - name: Build project
         run: npm run build
